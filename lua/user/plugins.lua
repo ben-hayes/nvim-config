@@ -46,6 +46,11 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
 
+  use "windwp/nvim-autopairs" -- Auto pairs
+
+  use "numToStr/Comment.nvim" -- Commenting plugin
+
+  -- Themes
   use "catppuccin/nvim"        -- Color scheme
 
   -- cmp plugins
@@ -77,6 +82,7 @@ return packer.startup(function(use)
   }
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
+  use "JoosepAlviste/nvim-ts-context-commentstring" -- Automatically set commentstring based on context
 
   -- GitHub Copilot
   use {
@@ -94,6 +100,9 @@ return packer.startup(function(use)
       require("copilot_cmp").setup()
     end
   }
+
+  -- Git 
+  use "lewis6991/gitsigns.nvim" -- Git signs
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
