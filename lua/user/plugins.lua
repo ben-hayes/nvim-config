@@ -42,16 +42,19 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
+  use "wbthomason/packer.nvim"       -- Have packer manage itself
+  use "nvim-lua/popup.nvim"          -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim"        -- Useful lua functions used ny lots of plugins
 
-  use "windwp/nvim-autopairs" -- Auto pairs
+  use "windwp/nvim-autopairs"        -- Auto pairs
 
-  use "numToStr/Comment.nvim" -- Commenting plugin
+  use "numToStr/Comment.nvim"        -- Commenting plugin
+
+  use "kyazdani42/nvim-web-devicons" -- Icons
+  use "kyazdani42/nvim-tree.lua"     -- File explorer
 
   -- Themes
-  use "catppuccin/nvim"        -- Color scheme
+  use "catppuccin/nvim" -- Color scheme
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"         -- The completion plugin
@@ -101,8 +104,15 @@ return packer.startup(function(use)
     end
   }
 
-  -- Git 
+  -- Git
   use "lewis6991/gitsigns.nvim" -- Git signs
+
+  -- Bufferline
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye" -- Close buffers without destroying my lovely layout
+
+  -- toggleterm
+  use "akinsho/toggleterm.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
