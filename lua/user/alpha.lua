@@ -6,7 +6,7 @@ end
 local dashboard = require("alpha.themes.dashboard")
 
 dashboard.section.header.val = {
-  [[  neovim  ]],
+  [[  (be)nvim  ]],
 }
 dashboard.section.buttons.val = {
 	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
@@ -24,7 +24,7 @@ local function footer()
 	-- local fortune = handle:read("*a")
 	-- handle:close()
 	-- return fortune
-	return "benhayes.net"
+	return "bh '23"
 end
 
 dashboard.section.footer.val = footer()
