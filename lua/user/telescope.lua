@@ -5,6 +5,8 @@ end
 
 local actions = require "telescope.actions"
 
+telescope.load_extension("projects")
+
 telescope.setup {
   defaults = {
     prompt_prefix = " ",
@@ -49,6 +51,8 @@ telescope.setup {
         ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
+
+        ["<C-c>"] = actions.close,
 
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
