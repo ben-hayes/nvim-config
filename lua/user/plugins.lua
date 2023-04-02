@@ -114,6 +114,12 @@ return packer.startup(function(use)
   -- toggleterm
   use "akinsho/toggleterm.nvim"
 
+  -- impatient
+  use "lewis6991/impatient.nvim" -- Speed up startup time
+
+  -- lualine
+  use "nvim-lualine/lualine.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

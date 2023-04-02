@@ -1,4 +1,5 @@
 require "user.options"
+require "user.autocommands"
 require "user.keymaps"
 require "user.plugins"
 require "user.colorscheme"
@@ -12,4 +13,6 @@ require "user.gitsigns"
 require "user.nvim-tree"
 require "user.bufferline"
 require "user.toggleterm"
+require "user.impatient"
+require "user.lualine"
 
