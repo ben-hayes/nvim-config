@@ -12,7 +12,7 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Vertically centre cursor on C-u and C-d 
+-- Vertically centre cursor on C-u and C-d
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
@@ -59,4 +59,14 @@ keymap(
 )
 
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+
+keymap(
+  "n",
+  "<leader>s",
+  "<cmd>lua require'telescope.builtin'.lsp_document_symbols(require('telescope.themes').get_dropdown({previewer = true}))<cr>",
+  opts
+)
+
+keymap("n", "<leader>t", "<cmd>Telescope<cr>", opts)
+keymap("n", "<leader>d", "<cmd>Telescope diagnostics<cr>", opts)
 
