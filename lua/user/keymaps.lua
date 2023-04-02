@@ -70,3 +70,14 @@ keymap(
 keymap("n", "<leader>t", "<cmd>Telescope<cr>", opts)
 keymap("n", "<leader>d", "<cmd>Telescope diagnostics<cr>", opts)
 
+keymap(
+  "n",
+  "<leader>b", "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({previewer = true}))<cr>", opts
+)
+
+keymap(
+  "n",
+  "<leader>;",
+  "<cmd>lua require'telescope.builtin'.command_history(require('telescope.themes').get_dropdown({previewer = true}))<cr>",
+  opts
+)
