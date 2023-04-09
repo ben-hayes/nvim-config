@@ -18,4 +18,7 @@ require "user.lualine"
 require "user.project"
 require "user.indent-blankline"
 require "user.alpha"
-
+require "user.leap"
+require "user.jupyter"
+require "user.neotest"
+require "user.whichkey"

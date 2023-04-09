@@ -75,7 +75,7 @@ keymap(
 
 keymap(
   "n",
-  "<leader>;",
+  "<leader>,",
   "<cmd>lua require'telescope.builtin'.command_history(require('telescope.themes').get_dropdown({previewer = true}))<cr>",
   opts
 )
@@ -85,3 +85,25 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Formatting
 keymap("n", "<leader>F", ":Format<cr>", opts)
+
+-- Safe delete buffers
+keymap("n", "<C-q>", ":Bd<cr>", opts)
+
+-- Return to home screen (alpha)
+keymap("n", "<leader>a", ":Alpha<cr>", opts)
+
+-- open iron repl
+keymap('n', '<leader>rs', '<cmd>IronRepl<cr>', opts)
+keymap('n', '<leader>rr', '<cmd>IronRestart<cr>', opts)
+keymap('n', '<leader>rf', '<cmd>IronFocus<cr>', opts)
+keymap('n', '<leader>rh', '<cmd>IronHide<cr>', opts)
+
+keymap('n', '<leader>c', 'o# %%\n', term_opts)
+keymap('n', '<leader>C', '[h o# %%\n', term_opts)
+
+-- run jupyter cell
+keymap("n", "]x", "qtrih", term_opts)
+keymap("n", "<leader>x", "qtrih", term_opts)
+keymap("n", "<leader>X", "qtrih]h", term_opts)
+keymap("n", "<leader>z", "qtrgg", term_opts)
+keymap("n", "<leader>Z", "ggqtrG", term_opts)
