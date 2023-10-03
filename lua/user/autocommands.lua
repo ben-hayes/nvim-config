@@ -24,4 +24,10 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+  augroup _neotest
+    autocmd!
+    autocmd FileType qf wincmd J
+    autocmd FileType qf resize 10
+    autocmd FileType qf nnoremap <silent> <buffer> <C-c> :close<CR>
+  augroup end
 ]]

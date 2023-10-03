@@ -64,8 +64,8 @@ end
 
 lualine.setup({
 	options = {
+    theme = "nord",
 		icons_enabled = true,
-		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "dashboard", "NvimTree", "Outline" },

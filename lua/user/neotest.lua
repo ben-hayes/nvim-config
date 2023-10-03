@@ -14,4 +14,7 @@ neotest.setup({
 			dap = { justMyCode = false },
 		}),
 	},
+  quickfix = {
+    open = false
+  },
 })

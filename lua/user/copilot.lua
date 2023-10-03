@@ -12,5 +12,8 @@ M.suggestion = {
     prev = "<C-h>",
   }
 }
+M.filetypes = {
+  yaml = true,
+}
 M.panel = { enabled = true }
 return M

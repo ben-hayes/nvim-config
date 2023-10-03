@@ -37,10 +37,14 @@ wk.register({
 -- Better window navigation
 wk.register({
 	name = "Window navigation",
-	["<C-h>"] = { "<C-w>h", "Left" },
-	["<C-j>"] = { "<C-w>j", "Down" },
-	["<C-k>"] = { "<C-w>k", "Up" },
-	["<C-l>"] = { "<C-w>l", "Right" },
+	-- ["<C-h>"] = { "<C-w>h", "Left" },
+	-- ["<C-j>"] = { "<C-w>j", "Down" },
+	-- ["<C-k>"] = { "<C-w>k", "Up" },
+	-- ["<C-l>"] = { "<C-w>l", "Right" },
+  ["<C-h>"] = { "<CMD>NavigatorLeft<CR>", "Left" },
+  ["<C-j>"] = { "<CMD>NavigatorDown<CR>", "Down" },
+  ["<C-k>"] = { "<CMD>NavigatorUp<CR>", "Up" },
+  ["<C-l>"] = { "<CMD>NavigatorRight<CR>", "Right" },
 	["<S-Up>"] = { ":resize +2<CR>", "Increase height" },
 	["<S-Down>"] = { ":resize -2<CR>", "Decrease height" },
 	["<S-Left>"] = { ":vertical resize -2<CR>", "Decrease width" },
@@ -145,6 +149,8 @@ wk.register({
 		},
 		c = { "o# %%\n", "Create cell" },
 		C = { "[h o# %%\n", "Create cell above" },
+		m = { "o# %% [markdown]\n", "Create markdown cell" },
+		M = { "[h o# %% [markdown]\n", "Create markdown cell above" },
 		x = { "qtrih", "Run cell" },
 		X = { "qtrih]h", "Run cell and move to next" },
 		z = { "qtrgg", "Run all cells to this line" },
@@ -161,17 +167,19 @@ wk.register({
 
 -- Neotest
 wk.register({
-  name = "Neotest",
-  ["<leader>;"] = {
-    name = "Neotest",
-    [";"] = { "<cmd>lua require('neotest').summary.toggle()<CR>", "Open magic test panel" },
-    c = { "<cmd>lua require('neotest').run.run()<CR>", "Run current test" },
-    l = { "<cmd>lua require('neotest').run.run_last()<CR>", "Run last test" },
-    f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run current test file" },
-    d = { "<cmd>lua require('neotest').run.debug()<CR>", "Debug current test" },
-  },
+	name = "Neotest",
+	["<leader>;"] = {
+		name = "Neotest",
+		[";"] = { "<cmd>lua require('neotest').summary.toggle()<CR>", "Open magic test panel" },
+		c = { "<cmd>lua require('neotest').run.run()<CR>", "Run current test" },
+		l = { "<cmd>lua require('neotest').run.run_last()<CR>", "Run last test" },
+		f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run current test file" },
+		d = { "<cmd>lua require('neotest').run.debug()<CR>", "Debug current test" },
+		o = { "<cmd>lua require('neotest').output_panel.toggle()<CR>", "Open output panel" },
+		i = { "<cmd>lua require('neotest').output.open({ enter = true, short = true })<CR>", "Run current test interactively" },
+	},
 }, {
-  mode = "n",
-  silent = true,
-  noremap = true,
+	mode = "n",
+	silent = true,
+	noremap = true,
 })

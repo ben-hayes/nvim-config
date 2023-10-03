@@ -59,13 +59,14 @@ return packer.startup(function(use)
 		requires = { "rktjmp/lush.nvim" },
 	})
 	use({
-		"mcchrish/zenbones.nvim",
+		-- "mcchrish/zenbones.nvim",
 		-- Optionally install Lush. Allows for more configuration or extending the colorscheme
 		-- If you don't want to install lush, make sure to set g:zenbones_compat = 1
 		-- In Vim, compat mode is turned on as Lush only works in Neovim.
-		requires = "rktjmp/lush.nvim",
+		-- requires = "rktjmp/lush.nvim",
 	})
-
+  -- use "neanias/everforest-nvim"
+  use "shaunsingh/nord.nvim"
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
 	use("hrsh7th/cmp-buffer") -- buffer completions
@@ -143,6 +144,9 @@ return packer.startup(function(use)
 	use("ggandor/leap.nvim")
 	use("ggandor/flit.nvim")
 
+  -- navigator
+  use("numToStr/Navigator.nvim")
+
 	-- jupyter
 	--- jupytext
 	use("goerz/jupytext.vim")
@@ -167,6 +171,9 @@ return packer.startup(function(use)
 	use({
 		"folke/which-key.nvim",
 	})
+
+  -- fugitive
+  use "tpope/vim-fugitive"
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
