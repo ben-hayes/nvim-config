@@ -33,6 +33,11 @@ wk.register({
 	noremap = true,
 })
 
+wk.register({
+  name = "Remote copy",
+  ["<leader>y"] = { "<cmd>lua require('osc52').copy_operator()<CR>", "Copy to clipboard" },
+})
+
 -- Normal --
 -- Better window navigation
 wk.register({

@@ -97,6 +97,7 @@ return packer.startup(function(use)
 	use("p00f/nvim-ts-rainbow")
 	use("nvim-treesitter/playground")
 	use("JoosepAlviste/nvim-ts-context-commentstring") -- Automatically set commentstring based on context
+  use "nvim-treesitter/nvim-treesitter-context"
 
 	-- GitHub Copilot
 	use({
@@ -135,7 +136,7 @@ return packer.startup(function(use)
 	use("ahmedkhalf/project.nvim")
 
 	-- indent blankline
-	use("lukas-reineke/indent-blankline.nvim")
+	use{"lukas-reineke/indent-blankline.nvim", tag = "v2.20.8"}
 
 	-- alpha
 	use("goolord/alpha-nvim")
@@ -172,8 +173,16 @@ return packer.startup(function(use)
 		"folke/which-key.nvim",
 	})
 
+  -- signatures
+  use({
+    "ray-x/lsp_signature.nvim",
+  })
+
   -- fugitive
   use "tpope/vim-fugitive"
+
+  --- osc52 allows remote copy paste
+  use "ojroques/nvim-osc52"
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
