@@ -52,20 +52,6 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons") -- Icons
 	use("kyazdani42/nvim-tree.lua") -- File explorer
 
-	-- Themes
-	use("catppuccin/nvim") -- Color scheme
-	use({
-		"uloco/bluloco.nvim",
-		requires = { "rktjmp/lush.nvim" },
-	})
-	use({
-		-- "mcchrish/zenbones.nvim",
-		-- Optionally install Lush. Allows for more configuration or extending the colorscheme
-		-- If you don't want to install lush, make sure to set g:zenbones_compat = 1
-		-- In Vim, compat mode is turned on as Lush only works in Neovim.
-		-- requires = "rktjmp/lush.nvim",
-	})
-  -- use "neanias/everforest-nvim"
   use "shaunsingh/nord.nvim"
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -94,8 +80,7 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("p00f/nvim-ts-rainbow")
-	use("nvim-treesitter/playground")
+	use("HiPhish/rainbow-delimiters.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring") -- Automatically set commentstring based on context
   use "nvim-treesitter/nvim-treesitter-context"
 
@@ -123,9 +108,6 @@ return packer.startup(function(use)
 	use("akinsho/bufferline.nvim")
 	use("moll/vim-bbye") -- Close buffers without destroying my lovely layout
 
-	-- toggleterm
-	use("akinsho/toggleterm.nvim")
-
 	-- impatient
 	use("lewis6991/impatient.nvim") -- Speed up startup time
 
@@ -142,20 +124,21 @@ return packer.startup(function(use)
 	use("goolord/alpha-nvim")
 
 	-- leap
+  use("tpope/vim-repeat")
 	use("ggandor/leap.nvim")
 	use("ggandor/flit.nvim")
 
   -- navigator
   use("numToStr/Navigator.nvim")
 
-	-- jupyter
-	--- jupytext
-	use("goerz/jupytext.vim")
-	--- iron.nvim
+	-- -- jupyter
+	-- --- jupytext
+	-- use("goerz/jupytext.vim")
+	-- --- iron.nvim
 	use("Vigemus/iron.nvim")
-	-- textobjects
-	use("kana/vim-textobj-user")
-	use("GCBallesteros/vim-textobj-hydrogen")
+	-- -- textobjects
+	-- use("kana/vim-textobj-user")
+	-- use("GCBallesteros/vim-textobj-hydrogen")
 
 	-- testing
 	use({
@@ -180,9 +163,6 @@ return packer.startup(function(use)
 
   -- fugitive
   use "tpope/vim-fugitive"
-
-  --- osc52 allows remote copy paste
-  use "ojroques/nvim-osc52"
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

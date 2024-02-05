@@ -1,5 +1,5 @@
 -- jupytext
-vim.g.jupytext_fmt = "py"
+-- vim.g.jupytext_fmt = "py"
 
 -- iron
 local status_ok, iron = pcall(require, "iron.core")

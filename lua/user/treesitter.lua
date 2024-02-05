@@ -12,10 +12,6 @@ configs.setup {
     additional_vim_regex_highlighting = true,
   },
   indent = { enable = true },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
 }
 
 require'treesitter-context'.setup{
@@ -33,3 +29,7 @@ require'treesitter-context'.setup{
   on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
 }
 
+require("ts_context_commentstring").setup {
+  enable = true,
+  enable_autocmd = false,
+}
