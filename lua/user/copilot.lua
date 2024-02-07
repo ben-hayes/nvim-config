@@ -14,6 +14,7 @@ M.suggestion = {
 }
 M.filetypes = {
   yaml = true,
+  lua = true,
 }
 M.panel = { enabled = true }
 return M

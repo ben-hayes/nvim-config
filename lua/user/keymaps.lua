@@ -91,7 +91,7 @@ wk.register({
 			"Find symbols",
 		},
 		t = { "<cmd>Telescope<cr>", "Open Telescope" },
-		d = { "<cmd>Telescope diagnostics<cr>", "Open diagnostics for current project" },
+		-- d = { "<cmd>Telescope diagnostics<cr>", "Open diagnostics for current project" },
 		b = {
 			"<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({previewer = true}))<cr>",
 			"List current buffers",
@@ -193,4 +193,45 @@ wk.register({
 			r = { "<cmd>TransferRepeat<cr>", "Repeat transfer command" },
 		},
 	},
+})
+
+
+-- Refactor
+wk.register({
+  ["<leader>"] = {
+    r = {
+      name = "Refactor",
+      p = { function() require("refactoring").debug.printf({below = false}) end, "Debug: print statement"},
+      v = { function() require("refactoring").debug.print_var() end, "Debug: print variable"},
+      c = { function() require("refactoring").debug.cleanup() end, "Debug: cleanup"},
+    }
+  }
+})
+
+wk.register({
+  ["<leader>"] = {
+    r = {
+      name = "Refactor",
+      e = { "<cmd>Refactor extract<cr>", "Extract to function" },
+      f = { "<cmd>Refactor extract_to_file<cr>", "Extract to file"},
+      v = { "<cmd>Refactor extract_var<cr>", "Extract variable (all occurrences)" },
+      i = { "<cmd>Refactor inline_var<cr>", "Inline variable (replace with value)"},
+      I = { "<cmd>Refactor inline_func<cr>", "Inline function (replace with internal code)"},
+    }
+  }
+}, { mode = "v" })
+
+-- nvim-dap
+
+wk.register({
+  ["<leader>"] = {
+    d = {
+      name = "Debugger",
+      t = { function() require("dap").toggle_breakpoint() end, "Toggle breakpoint" },
+      c = { function() require("dap").continue() end, "Launch debug session / continue" },
+      n = { function() require("dap").step_over() end, "Step over" },
+      s = { function() require("dap").step_into() end, "Step into" },
+      w = { function() require("dap").repl.open() end, "Open REPL" },
+    }
+  }
 })

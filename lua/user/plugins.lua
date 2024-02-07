@@ -76,9 +76,9 @@ return lazy.setup({
 		cmd = "Copilot",
 		event = "InsertEnter",
 		lazy = true,
-		-- config = function()
-		-- 	require("copilot").setup(require("r.copilot"))
-		-- end,
+		config = function()
+			require("copilot").setup({})
+		end,
 	},
 	-- ({
 	-- 	"zbirenbaum/copilot-cmp",
@@ -184,14 +184,17 @@ return lazy.setup({
 		},
 		opts = {},
 	},
-  {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      require("refactoring").setup()
-    end,
-  },
+	{
+		"ThePrimeagen/refactoring.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("refactoring").setup()
+		end,
+	},
+	{
+		"mfussenegger/nvim-dap",
+	},
 })
