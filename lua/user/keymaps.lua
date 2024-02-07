@@ -34,8 +34,8 @@ wk.register({
 })
 
 wk.register({
-  name = "Remote copy",
-  ["<leader>y"] = { "<cmd>lua require('osc52').copy_operator()<CR>", "Copy to clipboard" },
+	name = "Remote copy",
+	["<leader>y"] = { "<cmd>lua require('osc52').copy_operator()<CR>", "Copy to clipboard" },
 })
 
 -- Normal --
@@ -46,10 +46,10 @@ wk.register({
 	-- ["<C-j>"] = { "<C-w>j", "Down" },
 	-- ["<C-k>"] = { "<C-w>k", "Up" },
 	-- ["<C-l>"] = { "<C-w>l", "Right" },
-  ["<C-h>"] = { "<CMD>NavigatorLeft<CR>", "Left" },
-  ["<C-j>"] = { "<CMD>NavigatorDown<CR>", "Down" },
-  ["<C-k>"] = { "<CMD>NavigatorUp<CR>", "Up" },
-  ["<C-l>"] = { "<CMD>NavigatorRight<CR>", "Right" },
+	["<C-h>"] = { "<CMD>NavigatorLeft<CR>", "Left" },
+	["<C-j>"] = { "<CMD>NavigatorDown<CR>", "Down" },
+	["<C-k>"] = { "<CMD>NavigatorUp<CR>", "Up" },
+	["<C-l>"] = { "<CMD>NavigatorRight<CR>", "Right" },
 	["<S-Up>"] = { ":resize +2<CR>", "Increase height" },
 	["<S-Down>"] = { ":resize -2<CR>", "Decrease height" },
 	["<S-Left>"] = { ":vertical resize -2<CR>", "Decrease width" },
@@ -142,34 +142,6 @@ wk.register({
 -- Safe delete buffers
 keymap("n", "<C-q>", ":Bd<cr>", opts)
 
-wk.register({
-	name = "REPL",
-	["<leader>"] = {
-		r = {
-			name = "Iron",
-			s = { "<cmd>IronRepl<cr>", "Open Iron REPL" },
-			r = { "<cmd>IronRestart<cr>", "Restart Iron REPL" },
-			f = { "<cmd>IronFocus<cr>", "Focus Iron REPL" },
-			h = { "<cmd>IronHide<cr>", "Hide Iron REPL" },
-		},
-		c = { "o# %%\n", "Create cell" },
-		C = { "[h o# %%\n", "Create cell above" },
-		m = { "o# %% [markdown]\n", "Create markdown cell" },
-		M = { "[h o# %% [markdown]\n", "Create markdown cell above" },
-		x = { "qtrih", "Run cell" },
-		X = { "qtrih]h", "Run cell and move to next" },
-		z = { "qtrgg", "Run all cells to this line" },
-		Z = { "ggqtrG", "Run all cells" },
-	},
-	["[h"] = "Previous cell",
-	["]h"] = "Next cell",
-	["]x"] = { "qtrih", "Run cell" },
-}, {
-	mode = "n",
-	silent = true,
-	noremap = false,
-})
-
 -- Neotest
 wk.register({
 	name = "Neotest",
@@ -181,10 +153,44 @@ wk.register({
 		f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run current test file" },
 		d = { "<cmd>lua require('neotest').run.debug()<CR>", "Debug current test" },
 		o = { "<cmd>lua require('neotest').output_panel.toggle()<CR>", "Open output panel" },
-		i = { "<cmd>lua require('neotest').output.open({ enter = true, short = true })<CR>", "Run current test interactively" },
+		i = {
+			"<cmd>lua require('neotest').output.open({ enter = true, short = true })<CR>",
+			"Run current test interactively",
+		},
 	},
 }, {
 	mode = "n",
 	silent = true,
 	noremap = true,
+})
+
+-- Trouble
+wk.register({
+	name = "Trouble",
+	["<leader>x"] = {
+		name = "Trouble",
+		x = { "<cmd>TroubleToggle<cr>", "Toggle trouble" },
+		w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics" },
+		d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document diagnostics" },
+		q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
+		l = { "<cmd>TroubleToggle loclist<cr>", "Location list" },
+	},
+	["g"] = {
+		d = { "<cmd>TroubleToggle lsp_definitions<cr>", "Show definitions" },
+		r = { "<cmd>TroubleToggle lsp_references<cr>", "Show references" },
+	},
+})
+
+-- Transfer
+wk.register({
+	["<leader>"] = {
+		u = {
+			name = "Upload / Download",
+			d = { "<cmd>TransferDownload<cr>", "Download from remote server (scp)" },
+			u = { "<cmd>TransferUpload<cr>", "Upload to remote server (scp)" },
+			f = { "<cmd>DiffRemote<cr>", "Diff file with remote server (scp)" },
+			i = { "<cmd>TransferInit<cr>", "Init/Edit Deployment config" },
+			r = { "<cmd>TransferRepeat<cr>", "Repeat transfer command" },
+		},
+	},
 })
