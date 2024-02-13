@@ -6,8 +6,8 @@ M.suggestion = {
   debounce = 25,
   keymap = {
     accept = "<C-s>",
-    accept_word = "<C-a>",
-    dismiss = "<C-d>",
+    accept_word = "<C-d>",
+    dismiss = "<C-a>",
     next = "<C-l>",
     prev = "<C-h>",
   }

@@ -77,7 +77,7 @@ return lazy.setup({
 		event = "InsertEnter",
 		lazy = true,
 		config = function()
-			require("copilot").setup({})
+			require("copilot").setup(require("user.copilot"))
 		end,
 	},
 	-- ({
