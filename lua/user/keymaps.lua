@@ -40,6 +40,10 @@ wk.register({
 
 -- Normal --
 -- Better window navigation
+keymap("", "<C-h>", "<Nop>", opts)
+keymap("", "<C-j>", "<Nop>", opts)
+keymap("", "<C-k>", "<Nop>", opts)
+keymap("", "<C-l>", "<Nop>", opts)
 wk.register({
 	name = "Window navigation",
 	-- ["<C-h>"] = { "<C-w>h", "Left" },
@@ -196,43 +200,111 @@ wk.register({
 	},
 })
 
-
 -- Refactor
 wk.register({
-  ["<leader>"] = {
-    r = {
-      name = "Refactor",
-      p = { function() require("refactoring").debug.printf({below = false}) end, "Debug: print statement"},
-      v = { function() require("refactoring").debug.print_var() end, "Debug: print variable"},
-      c = { function() require("refactoring").debug.cleanup() end, "Debug: cleanup"},
-    }
-  }
+	["<leader>"] = {
+		r = {
+			name = "Refactor",
+			p = {
+				function()
+					require("refactoring").debug.printf({ below = false })
+				end,
+				"Debug: print statement",
+			},
+			v = {
+				function()
+					require("refactoring").debug.print_var()
+				end,
+				"Debug: print variable",
+			},
+			c = {
+				function()
+					require("refactoring").debug.cleanup()
+				end,
+				"Debug: cleanup",
+			},
+		},
+	},
 })
 
 wk.register({
-  ["<leader>"] = {
-    r = {
-      name = "Refactor",
-      e = { "<cmd>Refactor extract<cr>", "Extract to function" },
-      f = { "<cmd>Refactor extract_to_file<cr>", "Extract to file"},
-      v = { "<cmd>Refactor extract_var<cr>", "Extract variable (all occurrences)" },
-      i = { "<cmd>Refactor inline_var<cr>", "Inline variable (replace with value)"},
-      I = { "<cmd>Refactor inline_func<cr>", "Inline function (replace with internal code)"},
-    }
-  }
+	["<leader>"] = {
+		r = {
+			name = "Refactor",
+			e = { "<cmd>Refactor extract<cr>", "Extract to function" },
+			f = { "<cmd>Refactor extract_to_file<cr>", "Extract to file" },
+			v = { "<cmd>Refactor extract_var<cr>", "Extract variable (all occurrences)" },
+			i = { "<cmd>Refactor inline_var<cr>", "Inline variable (replace with value)" },
+			I = { "<cmd>Refactor inline_func<cr>", "Inline function (replace with internal code)" },
+		},
+	},
 }, { mode = "v" })
 
 -- nvim-dap
 
 wk.register({
+	["<leader>"] = {
+		d = {
+			name = "Debugger",
+			t = {
+				function()
+					require("dap").toggle_breakpoint()
+				end,
+				"Toggle breakpoint",
+			},
+			c = {
+				function()
+					require("dap").continue()
+				end,
+				"Launch debug session / continue",
+			},
+			n = {
+				function()
+					require("dap").step_over()
+				end,
+				"Step over",
+			},
+			s = {
+				function()
+					require("dap").step_into()
+				end,
+				"Step into",
+			},
+			w = {
+				function()
+					require("dap").repl.open()
+				end,
+				"Open REPL",
+			},
+		},
+	},
+})
+
+-- zen mode
+wk.register({
+	["<leader>"] = {
+		z = { "<cmd>ZenMode<cr>", "Toggle zen mode" },
+	},
+})
+
+-- vimtex
+wk.register({
   ["<leader>"] = {
-    d = {
-      name = "Debugger",
-      t = { function() require("dap").toggle_breakpoint() end, "Toggle breakpoint" },
-      c = { function() require("dap").continue() end, "Launch debug session / continue" },
-      n = { function() require("dap").step_over() end, "Step over" },
-      s = { function() require("dap").step_into() end, "Step into" },
-      w = { function() require("dap").repl.open() end, "Open REPL" },
-    }
-  }
+    v = {
+      name = "Vimtex",
+      i = { "<cmd>VimtexInfo<cr>", "Info" },
+      c = { "<cmd>VimtexCompile<cr>", "Toggle Continuous Compiler" },
+      C = { "<cmd>VimtexCompileSS<cr>", "Compile Now" },
+      t = { "<cmd>VimtexTocToggle<cr>", "Toggle Table of Contents" },
+      l = { "<cmd>VimtexLog<cr>", "Open Message Log" },
+      s = { "<cmd>VimtexStop<cr>", "Stop Compilation" },
+      S = { "<cmd>VimtexStatus<cr>", "Show VimTex status" },
+      x = { "<cmd>VimtexClean<cr>", "Clean auxillary files" },
+      X = { "<cmd>VimtexClean!<cr>", "Clean auxiliary and output files" },
+      v = { "<cmd>VimtexView<cr>", "Open PDF / Go to location in PDF" },
+      w = { "<cmd>VimtexCountWords<cr>", "Count words" },
+      W = { "<cmd>VimtexCountLetters<cr>", "Count letters" },
+      m = { "<cmd>VimtexToggleMain<cr>", "Toggle main file" },
+    },
+  },
 })

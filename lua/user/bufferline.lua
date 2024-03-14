@@ -3,10 +3,10 @@ if not status_ok then
 	return
 end
 
-local highlights = require("nord").bufferline.highlights({
-    italic = true,
-    bold = false,
-})
+-- local highlights = require("nord").bufferline.highlights({
+--     italic = true,
+--     bold = false,
+-- })
 
 bufferline.setup({
 	options = {

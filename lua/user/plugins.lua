@@ -38,7 +38,20 @@ return lazy.setup({
 	"kyazdani42/nvim-web-devicons", -- Icons
 	"kyazdani42/nvim-tree.lua", -- File explorer
 
-	"shaunsingh/nord.nvim",
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	-- "shaunsingh/nord.nvim",
+	{
+		"gbprod/nord.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nord").setup({})
+			vim.cmd.colorscheme("nord")
+		end,
+	},
+	install = {
+		colorscheme = { "nord" },
+	},
 	-- cmp plugins
 	"hrsh7th/nvim-cmp", -- The completion plugin
 	"hrsh7th/cmp-buffer", -- buffer completions
@@ -47,6 +60,9 @@ return lazy.setup({
 	"saadparwaiz1/cmp_luasnip", -- snippet completions
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lua",
+	-- "hrsh7th/cmp-omni",
+	"micangl/cmp-vimtex",
+	"kdheepak/cmp-latex-symbols",
 
 	-- snippets
 	"L3MON4D3/LuaSnip", --snippet engine
@@ -122,7 +138,7 @@ return lazy.setup({
 	-- --- jupytext
 	-- ("goerz/jupytext.vim",
 	-- --- iron.nvim
-	"Vigemus/iron.nvim",
+	-- "Vigemus/iron.nvim",
 	-- -- textobjects
 	-- ("kana/vim-textobj-r",
 	-- ("GCBallesteros/vim-textobj-hydrogen",
@@ -196,5 +212,30 @@ return lazy.setup({
 	},
 	{
 		"mfussenegger/nvim-dap",
+	},
+	{
+		"lervag/vimtex",
+		init = function()
+			-- Use init for configuration, don't use the more common "config".
+		end,
+	},
+	{
+		"folke/zen-mode.nvim",
+		opts = {
+			window = {
+				options = {
+					number = false,
+					signcolumn = "no",
+				},
+			},
+			plugins = {
+				tmux = { enabled = true },
+				twilight = { enabled = false },
+				kitty = { enabled = true, font = "+4" },
+			},
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
 	},
 })
