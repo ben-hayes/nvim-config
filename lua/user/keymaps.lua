@@ -6,7 +6,6 @@ local wk = require("which-key")
 
 vim.o.timeout = true
 vim.o.timeoutlen = 200
-wk.setup({})
 
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }

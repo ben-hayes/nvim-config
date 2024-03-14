@@ -1,25 +1,8 @@
-require "user.options"
-require "user.autocommands"
-require "user.plugins"
-require "user.keymaps"
--- require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
-require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.gitsigns"
-require "user.bufferline"
-require "user.impatient"
-require "user.lualine"
-require "user.project"
-require "user.indent-blankline"
-require "user.alpha"
-require "user.leap"
-require "user.jupyter"
-require "user.neotest"
-require "user.navigator"
-require "user.nvim-tree-cfg"
-require "user.signature"
-require "user.vimtex"
+--- global settings
+require("user.options")
+require("user.autocommands")
+
+--- load plugins
+require("lazy-nvim")
+
+require("user.keymaps")
