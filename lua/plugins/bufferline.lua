@@ -65,7 +65,7 @@ local bufferline_config = function()
       -- [focused and unfocused]. eg: { '|', '|' }
       separator_style = "thick", -- | "thick" | "thin" | { 'any', 'any' },
       enforce_regular_tabs = true,
-      always_show_bufferline = true,
+      always_show_bufferline = false,
       -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
       --   -- add custom logic
       --   return buffer_a.modified > buffer_b.modified

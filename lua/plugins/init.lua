@@ -8,14 +8,8 @@ return {
 		"folke/which-key.nvim",
 	},
 
-
 	-- fugitive
 	"tpope/vim-fugitive",
-
-	{
-		"folke/trouble.nvim",
-	},
-
 
 	{
 		"coffebar/transfer.nvim",

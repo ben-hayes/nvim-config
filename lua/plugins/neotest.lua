@@ -8,7 +8,7 @@ local neotest_config = function()
       }),
     },
     quickfix = {
-      open = false
+      open = true
     },
   })
 end
