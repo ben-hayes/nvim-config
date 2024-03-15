@@ -1,3 +1,13 @@
+function ToggleTroubleAuto()
+  local ok, trouble = pcall(require, "trouble")
+  if ok then
+    vim.defer_fn(function() 
+      vim.cmd('cclose')
+      trouble.open('quickfix') 
+    end, 0)
+  end
+end
+
 vim.cmd [[
   augroup _general_settings
     autocmd!
@@ -29,5 +39,8 @@ vim.cmd [[
     autocmd FileType qf wincmd J
     autocmd FileType qf resize 10
     autocmd FileType qf nnoremap <silent> <buffer> <C-c> :close<CR>
+  augroup end
+  augroup _trouble
+    autocmd BufWinEnter quickfix silent :lua ToggleTroubleAuto()
   augroup end
 ]]
