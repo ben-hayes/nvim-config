@@ -335,3 +335,17 @@ wk.register({
 		},
 	},
 })
+
+--- Noice
+wk.register({
+	["<leader>"] = {
+		n = {
+			name = "Noice",
+			["+"] = { "<cmd>NoiceEnable<cr>", "Enable Noice" },
+			["="] = { "<cmd>NoiceDisable<cr>", "Disable Noice" },
+			d = { "<cmd>NoiceDismiss<cr>", "Dismiss Noice" },
+			h = { "<cmd>NoiceHistory<cr>", "Show Noice history" },
+			t = { "<cmd>NoiceTelescope<cr>", "Open Noice history in Telescope" },
+		},
+	},
+})
