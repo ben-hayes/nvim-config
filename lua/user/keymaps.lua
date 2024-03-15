@@ -288,22 +288,50 @@ wk.register({
 
 -- vimtex
 wk.register({
-  ["<leader>"] = {
-    v = {
-      name = "Vimtex",
-      i = { "<cmd>VimtexInfo<cr>", "Info" },
-      c = { "<cmd>VimtexCompile<cr>", "Toggle Continuous Compiler" },
-      C = { "<cmd>VimtexCompileSS<cr>", "Compile Now" },
-      t = { "<cmd>VimtexTocToggle<cr>", "Toggle Table of Contents" },
-      l = { "<cmd>VimtexLog<cr>", "Open Message Log" },
-      s = { "<cmd>VimtexStop<cr>", "Stop Compilation" },
-      S = { "<cmd>VimtexStatus<cr>", "Show VimTex status" },
-      x = { "<cmd>VimtexClean<cr>", "Clean auxillary files" },
-      X = { "<cmd>VimtexClean!<cr>", "Clean auxiliary and output files" },
-      v = { "<cmd>VimtexView<cr>", "Open PDF / Go to location in PDF" },
-      w = { "<cmd>VimtexCountWords<cr>", "Count words" },
-      W = { "<cmd>VimtexCountLetters<cr>", "Count letters" },
-      m = { "<cmd>VimtexToggleMain<cr>", "Toggle main file" },
-    },
-  },
+	["<leader>"] = {
+		v = {
+			name = "Vimtex",
+			i = { "<cmd>VimtexInfo<cr>", "Info" },
+			c = { "<cmd>VimtexCompile<cr>", "Toggle Continuous Compiler" },
+			C = { "<cmd>VimtexCompileSS<cr>", "Compile Now" },
+			t = { "<cmd>VimtexTocToggle<cr>", "Toggle Table of Contents" },
+			l = { "<cmd>VimtexLog<cr>", "Open Message Log" },
+			s = { "<cmd>VimtexStop<cr>", "Stop Compilation" },
+			S = { "<cmd>VimtexStatus<cr>", "Show VimTex status" },
+			x = { "<cmd>VimtexClean<cr>", "Clean auxillary files" },
+			X = { "<cmd>VimtexClean!<cr>", "Clean auxiliary and output files" },
+			v = { "<cmd>VimtexView<cr>", "Open PDF / Go to location in PDF" },
+			w = { "<cmd>VimtexCountWords<cr>", "Count words" },
+			W = { "<cmd>VimtexCountLetters<cr>", "Count letters" },
+			m = { "<cmd>VimtexToggleMain<cr>", "Toggle main file" },
+		},
+	},
+})
+
+-- obsidian.nvim
+wk.register({
+	["<leader>"] = {
+		o = {
+			name = "Obsidian",
+			o = { "<cmd>ObsidianOpen<cr>", "Open note in Obsidian" },
+			n = { "<cmd>ObsidianNew<cr>", "Create new note" },
+			q = { "<cmd>ObsidianQuickSwitch<cr>", "Quick switch" },
+			f = { "<cmd>ObsidianFollowLink<cr>", "Follow link" },
+			b = { "<cmd>ObsidianBacklinks<cr>", "Backlinks" },
+			T = { "<cmd>ObsidianTags<cr>", "Tags" },
+			t = { "<cmd>ObsidianToday<cr>", "Today" },
+			y = { "<cmd>ObsidianYesterday<cr>", "Yesterday" },
+			r = { "<cmd>ObsidianTomorrow<cr>", "Tomorrow" },
+			d = { "<cmd>ObsidianDailies<cr>", "Dailies" },
+			I = { "<cmd>ObsidianTemplate<cr>", "Insert template from templates folder" },
+			["/"] = { "<cmd>ObsidianSearch<cr>", "Search in Obsidian folder" },
+			l = { "<cmd>ObsidianLink<cr>", "Link to note" },
+			L = { "<cmd>ObsidianLinkNew<cr>", "Create new note and link to it" },
+			s = { "<cmd>ObsidianLinks<cr>", "Links in note" },
+			e = { "<cmd>ObsidianExtractNote<cr>", "Extract note" },
+			w = { "<cmd>ObsidianWorkspace<cr>", "Switch workspace" },
+			p = { "<cmd>ObsidianPasteImg<cr>", "Paste image from clipboard" },
+			R = { "<cmd>ObsidianRename<cr>", "Rename note" },
+		},
+	},
 })

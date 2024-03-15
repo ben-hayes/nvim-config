@@ -1,5 +1,3 @@
-
-
 local bufferline_config = function()
   local bufferline = require("bufferline")
   bufferline.setup({
@@ -170,6 +168,6 @@ local bufferline_config = function()
 end
 
 return {
-  "akinsho/nvim-bufferline.lua",
+  "akinsho/bufferline.nvim",
   config = bufferline_config,
 }
