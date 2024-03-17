@@ -45,11 +45,17 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		config = treesitter_config,
+    event = "BufRead",
 	},
-	"HiPhish/rainbow-delimiters.nvim",
-	{ "JoosepAlviste/nvim-ts-context-commentstring", config = treesitter_commentstring_config }, -- Automatically set commentstring based on context
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		config = treesitter_context_config,
-	},
+	{"HiPhish/rainbow-delimiters.nvim", event = "BufRead"},
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    config = treesitter_commentstring_config,
+    event = "BufRead",
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    config = treesitter_context_config,
+    event = "BufRead",
+  },
 }

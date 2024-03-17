@@ -9,7 +9,7 @@ return {
 	},
 
 	-- fugitive
-	"tpope/vim-fugitive",
+	{ "tpope/vim-fugitive", cmd = { "Git" } },
 
 	{
 		"coffebar/transfer.nvim",
@@ -33,6 +33,7 @@ return {
 		config = function()
 			require("refactoring").setup()
 		end,
+		cmd = { "Refactor" },
 	},
 	{
 		"mfussenegger/nvim-dap",

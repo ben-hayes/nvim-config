@@ -170,4 +170,5 @@ end
 return {
   "akinsho/bufferline.nvim",
   config = bufferline_config,
+  event = "BufRead",
 }

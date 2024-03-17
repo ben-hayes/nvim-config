@@ -134,16 +134,16 @@ return {
 		event = "InsertEnter",
 		dependencies = {
 			"L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
-			"hrsh7th/cmp-buffer", -- buffer completions
+			"rafamadriz/friendly-snippets",
+			{ "hrsh7th/cmp-buffer", event = "BufRead" },
 			"hrsh7th/cmp-path", -- path completions
 			"hrsh7th/cmp-cmdline", -- cmdline completions
 			"saadparwaiz1/cmp_luasnip", -- snippet completions
 			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lua",
+			{ "hrsh7th/cmp-nvim-lua", ft = "lua" },
 			-- "hrsh7th/cmp-omni",
-			"micangl/cmp-vimtex",
-			"kdheepak/cmp-latex-symbols",
+			{ "micangl/cmp-vimtex", ft = "tex" },
+			{ "kdheepak/cmp-latex-symbols", ft = "tex" },
 		}, --snippet engine
 	}, -- The completion plugin
 }

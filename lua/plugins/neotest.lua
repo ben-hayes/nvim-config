@@ -23,5 +23,6 @@ return {
 			"antoinemadec/FixCursorHold.nvim",
 		},
     config = neotest_config,
+    cmd = { "Neotest" },
 	},
 }

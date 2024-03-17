@@ -22,5 +22,6 @@ return {
 	{
 		"lervag/vimtex",
 		init = vimtex_config,
+    ft = { "tex", "markdown" },
 	},
 }

@@ -97,5 +97,6 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		config = telescope_config,
+    cmd = {"Telescope"},
 	},
 }

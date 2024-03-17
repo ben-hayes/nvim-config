@@ -73,7 +73,7 @@ local function on_attach(bufnr)
 end
 
 local nvim_tree_config = function()
-  local nvim_tree = require("nvim-tree")
+	local nvim_tree = require("nvim-tree")
 	nvim_tree.setup({
 		on_attach = on_attach,
 		sync_root_with_cwd = true,
@@ -165,5 +165,19 @@ return {
 	{
 		"kyazdani42/nvim-tree.lua", -- File explorer
 		config = nvim_tree_config,
+		cmd = {
+			"NvimTreeOpen",
+			"NvimTreeClose",
+			"NvimTreeToggle",
+			"NvimTreeFocus",
+			"NvimTreeRefresh",
+			"NvimTreeFindFile",
+			"NvimTreeFindFileToggle",
+			"NvimTreeResize",
+			"NvimTreeClipboard",
+			"NvimTreeCollapse",
+			"NvimTreeCollapseKeepBuffers",
+			"NvimTreeHiTest",
+		},
 	},
 }
