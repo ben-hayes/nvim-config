@@ -4,6 +4,7 @@ telescope_config = function()
 	local trouble = require("trouble.providers.telescope")
 
 	telescope.load_extension("projects")
+	telescope.load_extension("persisted")
 
 	telescope.setup({
 		defaults = {
@@ -84,11 +85,9 @@ telescope_config = function()
 			},
 		},
 		extensions = {
-			-- Your extension configuration goes here:
-			-- extension_name = {
-			--   extension_config_key = value,
-			-- }
-			-- please take a look at the readme of the extension you want to configure
+			persisted = {
+				layout_config = { width = 0.55, height = 0.55 },
+			},
 		},
 	})
 end
@@ -97,6 +96,6 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		config = telescope_config,
-    cmd = {"Telescope"},
+		cmd = { "Telescope" },
 	},
 }

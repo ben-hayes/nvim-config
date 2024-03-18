@@ -52,6 +52,7 @@ return {
 				twilight = { enabled = false },
 				kitty = { enabled = true, font = "+4" },
 			},
+      cmd = { "ZenMode" },
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below

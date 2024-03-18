@@ -93,7 +93,10 @@ wk.register({
 			"<cmd>lua require'telescope.builtin'.lsp_document_symbols(require('telescope.themes').get_dropdown({previewer = true}))<cr>",
 			"Find symbols",
 		},
-		t = { "<cmd>Telescope<cr>", "Open Telescope" },
+		t = {
+      t = {"<cmd>Telescope<cr>", "Open Telescope" },
+      s = {"<cmd>Telescope persisted<cr>", "View sessions" },
+    },
 		-- d = { "<cmd>Telescope diagnostics<cr>", "Open diagnostics for current project" },
 		b = {
 			"<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({previewer = true}))<cr>",
