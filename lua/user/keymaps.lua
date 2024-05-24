@@ -93,6 +93,9 @@ keymap("v", "<S-k>", ":m .-2<CR>==gv", opts)
 -- keymap("v", "p", '"_dp', opts)
 keymap("v", "p", "P", opts)
 
+keymap("n", "c", '"cc', opts)
+keymap("v", "c", '"cc', opts)
+
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
@@ -141,9 +144,9 @@ wk.register({
 
 -- Oil
 wk.register({
-  name = "Oil",
-  ["<leader>e"] = {"<cmd>Oil .<cr>", "Browse files"},
-  ["<leader>E"] = {"<cmd>Oil . --float<cr>", "Browse files in floating window"},
+	name = "Oil",
+	["<leader>e"] = { "<cmd>Oil .<cr>", "Browse files" },
+	["<leader>E"] = { "<cmd>Oil . --float<cr>", "Browse files in floating window" },
 })
 
 -- Formatting
@@ -194,7 +197,7 @@ wk.register({
 		l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP diagnostics / references / ..." },
 		L = { "<cmd>Trouble loclist toggle<cr>", "Location list" },
 		s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols" },
-    c = { "<cmd>Trouble close<cr>", "Close trouble" },
+		c = { "<cmd>Trouble close<cr>", "Close trouble" },
 	},
 	["g"] = {
 		d = { "<cmd>Trouble lsp_definitions open win.position=right focus=true<cr>", "Show definitions" },
@@ -425,14 +428,17 @@ wk.register({
 -- 	},
 -- })
 
--- Treesitter
+-- Tab management
 wk.register({
-	["<leader>"] = {
-		T = {
-			name = "Treesitter",
-			c = { ":TSContextToggle<CR>", "Toggle Treesitter context" },
-		},
-	},
+	["<leader>T"] = { "<cmd>tab split<cr>", "Open new tab with current buffer" },
+	["[t"] = { "<cmd>tabp<cr>", "Previous tab" },
+	["]t"] = { "<cmd>tabn<cr>", "Next tab" },
+	-- close tab
+	["<leader>q"] = { "<cmd>tabclose<cr>", "Close tab" },
+	["<leader>Q"] = { "<cmd>tabonly<cr>", "Close all tabs except current" },
 })
 
--- UFO
+-- Neogit
+wk.register({
+	["<leader>G"] = { "<cmd>Neogit<cr>", "Open Neogit" },
+})
