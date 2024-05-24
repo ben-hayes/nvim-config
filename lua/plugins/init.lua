@@ -8,8 +8,8 @@ return {
 		"folke/which-key.nvim",
 	},
 
-	-- fugitive
-	{ "tpope/vim-fugitive", cmd = { "Git" } },
+	-- -- fugitive
+	-- { "tpope/vim-fugitive", cmd = { "Git" } },
 
 	{
 		"coffebar/transfer.nvim",
@@ -45,6 +45,7 @@ return {
 				options = {
 					number = false,
 					signcolumn = "no",
+          foldcolumn = "0",
 				},
 			},
 			plugins = {

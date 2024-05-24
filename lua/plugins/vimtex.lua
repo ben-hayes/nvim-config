@@ -1,5 +1,6 @@
 local vimtex_config = function()
 	vim.g.vimtex_view_method = "sioyek"
+	vim.g.vimtex_view_sioyek_options = "--nofocus --reuse-window"
 
 	-- Disable vimtex syntax highlighting
 	-- This is a shame as the highlighting is quite good, but it's just too slow using the
@@ -22,6 +23,6 @@ return {
 	{
 		"lervag/vimtex",
 		init = vimtex_config,
-    ft = { "tex", "markdown" },
+		-- ft = { "tex", "markdown" },
 	},
 }

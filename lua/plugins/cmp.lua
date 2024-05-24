@@ -37,11 +37,12 @@ local kind_icons = {
 local cmp_config = function(args)
 	local cmp = require("cmp")
 	local luasnip = require("luasnip")
+  require("luasnip.loaders.from_vscode").lazy_load()
 
 	cmp.setup({
 		snippet = {
-			expand = function(args)
-				luasnip.lsp_expand(args.body) -- For `luasnip` users.
+			expand = function(snip_args)
+				luasnip.lsp_expand(snip_args.body) -- For `luasnip` users.
 			end,
 		},
 		mapping = {
@@ -133,8 +134,7 @@ return {
 		config = cmp_config,
 		event = "InsertEnter",
 		dependencies = {
-			"L3MON4D3/LuaSnip",
-			"rafamadriz/friendly-snippets",
+			{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
 			{ "hrsh7th/cmp-buffer", event = "BufRead" },
 			"hrsh7th/cmp-path", -- path completions
 			"hrsh7th/cmp-cmdline", -- cmdline completions

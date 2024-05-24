@@ -44,7 +44,7 @@ telescope_config = function()
 					["<C-l>"] = actions.complete_tag,
 					["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
 
-					["<C-o>"] = trouble.open_with_trouble,
+					["<C-o>"] = require("trouble.sources.telescope").open,
 				},
 				n = {
 					["<esc>"] = actions.close,
@@ -80,7 +80,7 @@ telescope_config = function()
 
 					["?"] = actions.which_key,
 
-					["<C-o>"] = trouble.open_with_trouble,
+					["<C-o>"] = require("trouble.sources.telescope").open,
 				},
 			},
 		},

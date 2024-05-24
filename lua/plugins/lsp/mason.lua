@@ -3,6 +3,7 @@ local servers = {
 	"lua_ls",
 	"pyright",
 	"jsonls",
+  "tsserver",
 }
 
 local settings = {

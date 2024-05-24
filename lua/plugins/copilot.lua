@@ -16,6 +16,9 @@ local copilot_config = function()
 	M.filetypes = {
 		yaml = true,
 		lua = true,
+    tex = false,
+    md = false,
+    markdown = false,
 	}
 	M.panel = { enabled = true }
 	require("copilot").setup(M)

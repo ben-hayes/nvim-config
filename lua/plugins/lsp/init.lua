@@ -14,10 +14,16 @@ return {
 		}, -- simple to  language server installer
 		"williamboman/mason-lspconfig.nvim", -- simple to  language server installer
 		{
-			"jose-elias-alvarez/null-ls.nvim",
+			"jay-babu/mason-null-ls.nvim",
+			event = { "BufReadPre", "BufNewFile" },
+			dependencies = {
+				"williamboman/mason.nvim",
+				"nvimtools/none-ls-extras.nvim",
+				"nvimtools/none-ls.nvim",
+			},
 			config = function()
 				require("plugins.lsp.null-ls")
 			end,
-		}, -- LSP diagnostics and code actions
+		},
 	},
 }

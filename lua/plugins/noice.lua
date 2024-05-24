@@ -16,6 +16,13 @@ local noice_config = function()
 			inc_rename = false, -- enables an input dialog for inc-rename.nvim
 			lsp_doc_border = false, -- add a border to hover docs and signature help
 		},
+		views = {
+			mini = {
+				win_options = {
+					winblend = 0,
+				},
+			},
+		},
 	})
 end
 
@@ -32,7 +39,15 @@ return {
 			-- OPTIONAL:
 			--   `nvim-notify` is only needed, if you want to use the notification view.
 			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
+			-- {
+			-- 	"rcarriga/nvim-notify",
+			-- 	opts = {
+			-- 		timeout = 3000,
+			-- 		render = "compact",
+			-- 		stages = "fade_in_slide_out",
+			-- 		top_down = false,
+			-- 	},
+			-- },
 		},
 		config = noice_config,
 	},

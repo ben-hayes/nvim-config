@@ -57,8 +57,24 @@ wk.register({
 	["<S-Down>"] = { ":resize -2<CR>", "Decrease height" },
 	["<S-Left>"] = { ":vertical resize -2<CR>", "Decrease width" },
 	["<S-Right>"] = { ":vertical resize +2<CR>", "Increase width" },
-	["<S-l>"] = { ":bnext<CR>", "Next buffer" },
-	["<S-h>"] = { ":bprevious<CR>", "Previous buffer" },
+
+	--- Bufferline
+	["<S-h>"] = { ":BufferLineCyclePrev<CR>", "Previous buffer" },
+	["<S-l>"] = { ":BufferLineCycleNext<CR>", "Next buffer" },
+	["<M-h>"] = { ":BufferLineMovePrev<CR>", "Move buffer left" },
+	["<M-l>"] = { ":BufferLineMoveNext<CR>", "Move buffer right" },
+
+	["<leader>"] = {
+		b = {
+			name = "Bufferline",
+			o = { "<CMD>BufferLineCloseOthers<CR>", "Close other buffers" },
+			p = { "<CMD>BufferLineTogglePin<CR>", "Pin buffer" },
+			r = { "<CMD>BufferLineTabRename<CR>", "Rename tab" },
+			x = { "<CMD>BufferLinePickClose<CR>", "Pick and close buffer" },
+			b = { "<CMD>BufferLinePick<CR>", "Pick buffer" },
+			s = { "<CMD>BufferLineSortByDirectory<CR>", "Sort by directory" },
+		},
+	},
 }, {
 	mode = "n",
 	silent = true,
@@ -74,7 +90,8 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("v", "<S-j>", ":m .+1<CR>==gv", opts)
 keymap("v", "<S-k>", ":m .-2<CR>==gv", opts)
-keymap("v", "p", '"_dP', opts)
+-- keymap("v", "p", '"_dp', opts)
+keymap("v", "p", "P", opts)
 
 -- Visual Block --
 -- Move text up and down
@@ -94,14 +111,15 @@ wk.register({
 			"Find symbols",
 		},
 		t = {
-      t = {"<cmd>Telescope<cr>", "Open Telescope" },
-      s = {"<cmd>Telescope persisted<cr>", "View sessions" },
-    },
-		-- d = { "<cmd>Telescope diagnostics<cr>", "Open diagnostics for current project" },
-		b = {
-			"<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({previewer = true}))<cr>",
-			"List current buffers",
+			t = { "<cmd>Telescope<cr>", "Open Telescope" },
+			s = { "<cmd>Telescope persisted<cr>", "View sessions" },
+			c = { "<cmd>Telescope colorscheme<cr>", "Change colorscheme" },
+			b = {
+				"<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({previewer = true}))<cr>",
+				"List current buffers",
+			},
 		},
+		-- d = { "<cmd>Telescope diagnostics<cr>", "Open diagnostics for current project" },
 		[","] = {
 			"<cmd>lua require'telescope.builtin'.command_history(require('telescope.themes').get_dropdown({previewer = true}))<cr>",
 			"Open command history",
@@ -121,23 +139,18 @@ wk.register({
 	noremap = true,
 })
 
--- NvimTree
+-- Oil
 wk.register({
-	name = "NvimTree",
-	["<leader>"] = {
-		e = { "<cmd>NvimTreeToggle<cr>", "Toggle NvimTree" },
-	},
-}, {
-	mode = "n",
-	silent = true,
-	noremap = true,
+  name = "Oil",
+  ["<leader>e"] = {"<cmd>Oil .<cr>", "Browse files"},
+  ["<leader>E"] = {"<cmd>Oil . --float<cr>", "Browse files in floating window"},
 })
 
 -- Formatting
 wk.register({
 	name = "Format",
 	["<leader>"] = {
-		F = { "<cmd>Format<cr>", "Format buffer" },
+		F = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format buffer" },
 	},
 }, {
 	mode = "n",
@@ -170,20 +183,22 @@ wk.register({
 	noremap = true,
 })
 
--- Trouble
+-- -- Trouble
 wk.register({
 	name = "Trouble",
 	["<leader>x"] = {
 		name = "Trouble",
-		x = { "<cmd>TroubleToggle<cr>", "Toggle trouble" },
-		w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics" },
-		d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document diagnostics" },
-		q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
-		l = { "<cmd>TroubleToggle loclist<cr>", "Location list" },
+		x = { "<cmd>Trouble diagnostics toggle<cr>", "Toggle trouble diagnostics (all files)" },
+		X = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Toggle trouble (current buffer)" },
+		q = { "<cmd>Trouble qflist toggle<cr>", "Quickfix" },
+		l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP diagnostics / references / ..." },
+		L = { "<cmd>Trouble loclist toggle<cr>", "Location list" },
+		s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols" },
+    c = { "<cmd>Trouble close<cr>", "Close trouble" },
 	},
 	["g"] = {
-		d = { "<cmd>TroubleToggle lsp_definitions<cr>", "Show definitions" },
-		r = { "<cmd>TroubleToggle lsp_references<cr>", "Show references" },
+		d = { "<cmd>Trouble lsp_definitions open win.position=right focus=true<cr>", "Show definitions" },
+		r = { "<cmd>Trouble lsp_references open win.position=right focus=true<cr>", "Show references" },
 	},
 })
 
@@ -352,3 +367,72 @@ wk.register({
 		},
 	},
 })
+
+--- ChatGPT
+-- old gpt
+wk.register({
+	["<leader>"] = {
+		c = {
+			name = "ChatGPT",
+			c = { "<cmd>ChatGPT<CR>", "Open ChatGPT" },
+			e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
+			r = {
+				name = "Run mode",
+				g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
+				t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
+				k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
+				d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
+				a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
+				o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
+				s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
+				f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
+				x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
+				r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
+				l = {
+					"<cmd>ChatGPTRun code_readability_analysis<CR>",
+					"Code Readability Analysis",
+					mode = { "n", "v" },
+				},
+			},
+		},
+	},
+})
+
+-- wk.register({
+-- 	["<leader>"] = {
+-- 		c = {
+-- 			name = "ChatGPT",
+-- 			v = { ":GpChatToggle vsplit<CR>", "Open chat in vertical split" },
+-- 			s = { ":GpChatToggle split<CR>", "Open chat in horizontal split" },
+-- 			w = { ":GpChatToggle popup<CR>", "Open chat in floating window" },
+--       n = { ":GpChatNew<CR>", "Open new chat in current window" },
+--       f = { "<CMD>GpChatFinder<CR>", "Find chat"},
+--       D = { ":GpChatDelete<CR>", "Delete current chat" },
+-- 			mode = { "n", "v" },
+-- 		},
+-- 	},
+-- })
+-- wk.register({
+-- 	["<leader>"] = {
+-- 		c = {
+-- 			name = "ChatGPT",
+-- 			p = { ":GpChatPaste<CR>", "Paste selection into last chat" },
+--       r = { ":GpRewrite<CR>", "Rewrite selection according to prompt" },
+--       O = { ":GpPrepend<CR>", "Prepend to selection according to prompt" },
+--       o = { ":GpAppend<CR>", "Append to selection according to prompt" },
+-- 			mode = { "v" },
+-- 		},
+-- 	},
+-- })
+
+-- Treesitter
+wk.register({
+	["<leader>"] = {
+		T = {
+			name = "Treesitter",
+			c = { ":TSContextToggle<CR>", "Toggle Treesitter context" },
+		},
+	},
+})
+
+-- UFO

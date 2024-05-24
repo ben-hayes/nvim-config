@@ -15,5 +15,6 @@ return {
 		},
 		lazy = true,
 		event = "BufReadPre",
+    cmd = { "SessionSave", "SessionLoad", "SessionDelete" },
 	},
 }

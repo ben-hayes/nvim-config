@@ -1,14 +1,15 @@
 function ToggleTroubleAuto()
-  local ok, trouble = pcall(require, "trouble")
-  if ok then
-    vim.defer_fn(function() 
-      vim.cmd('cclose')
-      trouble.open('quickfix') 
-    end, 0)
-  end
+	local ok, trouble = pcall(require, "trouble")
+	if ok then
+		vim.defer_fn(function()
+			-- trouble.open({ "quickfix", focus = false })
+			vim.cmd("cclose")
+      vim.cmd("Trouble qflist toggle focus=false")
+		end, 0)
+	end
 end
 
-vim.cmd [[
+vim.cmd([[
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
@@ -43,4 +44,4 @@ vim.cmd [[
   augroup _trouble
     autocmd BufWinEnter quickfix silent :lua ToggleTroubleAuto()
   augroup end
-]]
+]])
