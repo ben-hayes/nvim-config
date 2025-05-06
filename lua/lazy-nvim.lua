@@ -22,11 +22,11 @@ vim.opt.rtp:prepend(lazypath)
 -- Use a protected call so we don't error out on first use
 local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
-	return
+	return 
 end
 
 -- Install your plugins here
-return lazy.setup("plugins", {
+return  lazy.setup("plugins", {
 	defaults = {
 		lazy = false,
 	},

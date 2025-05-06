@@ -7,6 +7,7 @@ local noice_config = function()
 				["vim.lsp.util.stylize_markdown"] = true,
 				["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
 			},
+			signature = { enabled = false },
 		},
 		-- you can enable a preset for easier configuration
 		presets = {
@@ -27,28 +28,33 @@ local noice_config = function()
 end
 
 return {
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			-- {
-			-- 	"rcarriga/nvim-notify",
-			-- 	opts = {
-			-- 		timeout = 3000,
-			-- 		render = "compact",
-			-- 		stages = "fade_in_slide_out",
-			-- 		top_down = false,
-			-- 	},
-			-- },
-		},
-		config = noice_config,
+	"folke/noice.nvim",
+	event = "VeryLazy",
+	opts = {
+		-- add any options here
+	},
+	dependencies = {
+		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+		"MunifTanjim/nui.nvim",
+		-- OPTIONAL:
+		--   `nvim-notify` is only needed, if you want to use the notification view.
+		--   If not available, we use `mini` as the fallback
+		-- {
+		-- 	"rcarriga/nvim-notify",
+		-- 	opts = {
+		-- 		timeout = 3000,
+		-- 		render = "compact",
+		-- 		stages = "fade_in_slide_out",
+		-- 		top_down = false,
+		-- 	},
+		-- },
+	},
+	config = noice_config,
+	keys = {
+		{ "<leader>n", group = "Noice" },
+		{ "<leader>n+", "<cmd>NoiceEnable<cr>", desc = "Enable Noice" },
+		{ "<leader>n=", "<cmd>NoiceDisable<cr>", desc = "Disable Noice" },
+		{ "<leader>nd", "<cmd>NoiceDismiss<cr>", desc = "Dismiss Noice" },
+		{ "<leader>nh", "<cmd>NoiceHistory<cr>", desc = "Show Noice history" },
 	},
 }

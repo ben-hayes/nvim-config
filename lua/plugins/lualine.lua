@@ -62,11 +62,22 @@ local lualine_config = function()
 
 	lualine.setup({
 		options = {
-			theme = "nord",
+			globalstatus = true,
+			theme = "nightfox",
 			icons_enabled = true,
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
-			disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
+			disabled_filetypes = {
+				"dashboard",
+				"NvimTree",
+				"Outline",
+				-- "dapui_console",
+				-- "dap-repl",
+				-- "dapui_watches",
+				-- "dapui_stacks",
+				-- "dapui_breakpoints",
+				-- "dapui_scopes",
+			},
 			always_divide_middle = true,
 		},
 		sections = {
@@ -79,10 +90,10 @@ local lualine_config = function()
 			lualine_z = { progress },
 		},
 		inactive_sections = {
-			lualine_a = {},
+			lualine_a = { branch, diagnostics },
 			lualine_b = {},
-			lualine_c = {},
-			lualine_x = { "location" },
+			lualine_c = { "filename" },
+			lualine_x = { diff, spaces, "encoding", filetype },
 			lualine_y = {},
 			lualine_z = {},
 		},
@@ -94,6 +105,6 @@ end
 return {
 	{
 		"nvim-lualine/lualine.nvim",
-    config = lualine_config,
+		config = lualine_config,
 	},
 }

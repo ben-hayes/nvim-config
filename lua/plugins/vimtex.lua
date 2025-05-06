@@ -1,28 +1,44 @@
-local vimtex_config = function()
-	vim.g.vimtex_view_method = "sioyek"
-	vim.g.vimtex_view_sioyek_options = "--nofocus --reuse-window"
-
-	-- Disable vimtex syntax highlighting
-	-- This is a shame as the highlighting is quite good, but it's just too slow using the
-	-- legacy vim syntax engine. So best to fall back on treesitter.
-	vim.g.vimtex_syntax_enabled = 0
-
-	local function setTextSettings()
-		vim.opt.wrap = true
-		vim.opt.linebreak = true
-
-		-- set spell checker
-		vim.opt.spell = true
-		vim.opt.spelllang = "en_gb"
-	end
-
-	vim.api.nvim_create_autocmd("FileType", { pattern = { "tex", "markdown" }, callback = setTextSettings })
-end
-
-return {
-	{
-		"lervag/vimtex",
-		init = vimtex_config,
-		-- ft = { "tex", "markdown" },
-	},
-}
+-- local vimtex_config = function()
+-- 	vim.g.vimtex_view_method = "sioyek"
+-- 	vim.g.vimtex_view_sioyek_options = "--nofocus --reuse-window"
+--
+-- 	-- Disable vimtex syntax highlighting
+-- 	-- This is a shame as the highlighting is quite good, but it's just too slow using the
+-- 	-- legacy vim syntax engine. So best to fall back on treesitter.
+-- 	vim.g.vimtex_syntax_enabled = 0
+--
+-- 	local function setTextSettings()
+-- 		vim.opt.wrap = true
+-- 		vim.opt.linebreak = true
+--
+-- 		-- set spell checker
+-- 		vim.opt.spell = true
+-- 		vim.opt.spelllang = "en_gb"
+-- 	end
+--
+-- 	vim.api.nvim_create_autocmd("FileType", { pattern = { "tex", "markdown" }, callback = setTextSettings })
+-- end
+--
+-- return {
+--
+-- 	"lervag/vimtex",
+-- 	init = vimtex_config,
+-- 	ft = { "tex" },
+-- 	keys = {
+-- 		{ "<leader>v", group = "Vimtex" },
+-- 		{ "<leader>vC", "<cmd>VimtexCompileSS<cr>", desc = "Compile Now" },
+-- 		{ "<leader>vS", "<cmd>VimtexStatus<cr>", desc = "Show VimTex status" },
+-- 		{ "<leader>vW", "<cmd>VimtexCountLetters<cr>", desc = "Count letters" },
+-- 		{ "<leader>vX", "<cmd>VimtexClean!<cr>", desc = "Clean auxiliary and output files" },
+-- 		{ "<leader>vc", "<cmd>VimtexCompile<cr>", desc = "Toggle Continuous Compiler" },
+-- 		{ "<leader>vi", "<cmd>VimtexInfo<cr>", desc = "Info" },
+-- 		{ "<leader>vl", "<cmd>VimtexLog<cr>", desc = "Open Message Log" },
+-- 		{ "<leader>vm", "<cmd>VimtexToggleMain<cr>", desc = "Toggle main file" },
+-- 		{ "<leader>vs", "<cmd>VimtexStop<cr>", desc = "Stop Compilation" },
+-- 		{ "<leader>vt", "<cmd>VimtexTocToggle<cr>", desc = "Toggle Table of Contents" },
+-- 		{ "<leader>vv", "<cmd>VimtexView<cr>", desc = "Open PDF / Go to location in PDF" },
+-- 		{ "<leader>vw", "<cmd>VimtexCountWords<cr>", desc = "Count words" },
+-- 		{ "<leader>vx", "<cmd>VimtexClean<cr>", desc = "Clean auxillary files" },
+-- 	},
+-- }
+return {}

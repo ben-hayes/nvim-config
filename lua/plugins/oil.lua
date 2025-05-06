@@ -13,6 +13,7 @@ local oil_config = function()
 			["<leader>t"] = "actions.select_tab",
 			["<leader>p"] = "actions.preview",
 			["<C-c>"] = "actions.close",
+			["q"] = "actions.close",
 			["<leader>r"] = "actions.refresh",
 			["-"] = "actions.parent",
 			["_"] = "actions.open_cwd",
@@ -23,7 +24,7 @@ local oil_config = function()
 			["g."] = "actions.toggle_hidden",
 			["g\\"] = "actions.toggle_trash",
 		},
-    use_default_keymaps = false,
+		use_default_keymaps = false,
 	})
 end
 
@@ -33,4 +34,22 @@ return {
 	-- Optional dependencies
 	config = oil_config,
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	keys = {
+		{
+			"<leader>E",
+			function()
+				local oil = require("oil")
+				oil.toggle_float()
+			end,
+			desc = "Browse files in floating window",
+		},
+		{
+			"<leader>e",
+			function()
+				local oil = require("oil")
+				oil.open()
+			end,
+			desc = "Browse files",
+		},
+	},
 }
